@@ -42,7 +42,6 @@ public class MobListener implements Listener{
     	if (et == EntityType.BAT ||
     			et == EntityType.ENDER_DRAGON ||
     			et == EntityType.IRON_GOLEM ||
-    			et == EntityType.OCELOT ||
     			et == EntityType.SILVERFISH ||
     			et == EntityType.VILLAGER ||
     			et == EntityType.WITCH ||
