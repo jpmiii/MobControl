@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 
 import com.jpmiii.MobControl.MobControl;
 
@@ -20,7 +21,7 @@ public class MobListener implements Listener{
     @EventHandler(priority = EventPriority.MONITOR)
     public void spawn(CreatureSpawnEvent event) {
     	Location el = event.getLocation();
-    	//SpawnReason sr = event.getSpawnReason();
+    	SpawnReason sr = event.getSpawnReason();
     	EntityType et = event.getEntity().getType();
     	if (el.getWorld().getName().equalsIgnoreCase(plugin.getConfig().getString("worldName"))){
     		
@@ -33,16 +34,27 @@ public class MobListener implements Listener{
     	        	if (el.getY() > 55 || el.getBlock().getLightLevel() > 9) {
 		                event.setCancelled(true);
 		            }
+    	        	
 
 
      		  //  }   	   
-    	    }
+    	        }
+    	        if ((sr != SpawnReason.BREEDING && sr != SpawnReason.SPAWNER_EGG) && (et == EntityType.CHICKEN ||
+    	        		et == EntityType.COW ||
+    	        		et == EntityType.HORSE ||
+    	        		et == EntityType.MUSHROOM_COW ||
+    	        		//et == EntityType.OCELOT ||
+    	        		et == EntityType.PIG ||
+    	        		et == EntityType.SHEEP)){
+    	        	event.setCancelled(true);
+    	        }
+    	        
     	    
     	}
     	if (et == EntityType.BAT ||
     			et == EntityType.ENDER_DRAGON ||
     			et == EntityType.IRON_GOLEM ||
-    			et == EntityType.SILVERFISH ||
+    			//et == EntityType.SILVERFISH ||
     			et == EntityType.VILLAGER ||
     			et == EntityType.WITCH ||
     			et == EntityType.WOLF ){
