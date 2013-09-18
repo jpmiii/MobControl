@@ -43,8 +43,8 @@ public class MobListener implements Listener{
     	        		et == EntityType.COW ||
     	        		et == EntityType.HORSE ||
     	        		et == EntityType.MUSHROOM_COW ||
-    	        		//et == EntityType.OCELOT ||
-    	        		//et == EntityType.WOLF ||
+    	        		et == EntityType.OCELOT ||
+    	        		et == EntityType.WOLF ||
     	        		et == EntityType.PIG ||
     	        		et == EntityType.SHEEP)){
     	        	event.setCancelled(true);
@@ -57,7 +57,8 @@ public class MobListener implements Listener{
     			et == EntityType.IRON_GOLEM ||
     			//et == EntityType.SILVERFISH ||
     			et == EntityType.VILLAGER ||
-    			et == EntityType.WITCH){
+    			et == EntityType.WITCH || 
+    			et == EntityType.SQUID){
     		event.setCancelled(true);
     	}
 
