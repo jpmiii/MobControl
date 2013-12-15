@@ -57,13 +57,14 @@ public class MobListener implements Listener {
 		SpawnReason sr = event.getSpawnReason();
 		EntityType et = event.getEntity().getType();
 		if (el.getWorld().getName()
-				.equalsIgnoreCase(plugin.getConfig().getString("worldName"))) {
+				.equalsIgnoreCase(plugin.worldname)) {
 
 			// if(sr == SpawnReason.NATURAL || sr == SpawnReason.DEFAULT || sr
 			// == SpawnReason.CHUNK_GEN) {
 
 			if (et == EntityType.CREEPER || et == EntityType.ENDERMAN
-					|| et == EntityType.SPIDER || et == EntityType.SKELETON
+					//|| et == EntityType.SPIDER 
+					|| et == EntityType.SKELETON
 					|| et == EntityType.ZOMBIE) {
 				if (el.getY() > 55 || el.getBlock().getLightLevel() > 9) {
 					event.setCancelled(true);
@@ -85,7 +86,9 @@ public class MobListener implements Listener {
 				|| et == EntityType.IRON_GOLEM ||
 				// et == EntityType.SILVERFISH ||
 				// et == EntityType.SQUID ||
-				et == EntityType.WITCH || et == EntityType.VILLAGER) {
+				et == EntityType.WITCH || 
+				et == EntityType.VILLAGER) 
+		{
 			event.setCancelled(true);
 		}
 
