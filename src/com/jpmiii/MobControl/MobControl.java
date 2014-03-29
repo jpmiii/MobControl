@@ -13,7 +13,7 @@ public final class MobControl extends JavaPlugin {
 		
 		getServer().getPluginManager().registerEvents(new MobListener(this), this);
 		
-        getServer().getWorld(this.getConfig().getString("worldName")).setMonsterSpawnLimit(this.getConfig().getInt("mobsPerChunk"));
+        //getServer().getWorld(this.getConfig().getString("worldName")).setMonsterSpawnLimit(this.getConfig().getInt("mobsPerChunk"));
         
         worldname = this.getConfig().getString("worldName");
 		

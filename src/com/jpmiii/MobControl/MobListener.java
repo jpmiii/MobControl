@@ -56,32 +56,35 @@ public class MobListener implements Listener {
 		Location el = event.getLocation();
 		SpawnReason sr = event.getSpawnReason();
 		EntityType et = event.getEntity().getType();
+		if (sr != SpawnReason.CUSTOM && sr != SpawnReason.SPAWNER_EGG) {
 		if (el.getWorld().getName()
 				.equalsIgnoreCase(plugin.worldname)) {
 
 			// if(sr == SpawnReason.NATURAL || sr == SpawnReason.DEFAULT || sr
 			// == SpawnReason.CHUNK_GEN) {
-
+/*
 			if (et == EntityType.CREEPER || et == EntityType.ENDERMAN
 					//|| et == EntityType.SPIDER 
 					|| et == EntityType.SKELETON
 					|| et == EntityType.ZOMBIE) {
-				if (el.getY() > 55 || el.getBlock().getLightLevel() > 9) {
+				if (el.getY() > 0 || el.getBlock().getLightLevel() > 9) {
 					event.setCancelled(true);
 				}
 
 				// }
-			}
-			if ((sr != SpawnReason.BREEDING && sr != SpawnReason.SPAWNER_EGG)
+			}  */
+			if ((sr != SpawnReason.BREEDING)
 					&& (et == EntityType.CHICKEN || et == EntityType.COW
-							|| et == EntityType.HORSE
 							|| et == EntityType.MUSHROOM_COW
 							|| et == EntityType.OCELOT || et == EntityType.WOLF
-							|| et == EntityType.PIG || et == EntityType.SHEEP)) {
+							|| et == EntityType.PIG || et == EntityType.SHEEP
+							|| et == EntityType.HORSE)) {
 				event.setCancelled(true);
 			}
 
+
 		}
+
 		if (et == EntityType.BAT || et == EntityType.ENDER_DRAGON
 				|| et == EntityType.IRON_GOLEM ||
 				// et == EntityType.SILVERFISH ||
@@ -91,7 +94,9 @@ public class MobListener implements Listener {
 		{
 			event.setCancelled(true);
 		}
+		
 
+	}
 	}
 
 }
