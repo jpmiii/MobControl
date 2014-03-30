@@ -73,6 +73,23 @@ public class MobListener implements Listener {
 
 				// }
 			}  */
+			if(sr == SpawnReason.SPAWNER_EGG && el.getZ()  < -3300) {
+				
+				if (et == EntityType.CREEPER || et == EntityType.ENDERMAN
+						//|| et == EntityType.SPIDER 
+						|| et == EntityType.SKELETON
+						|| et == EntityType.ZOMBIE) {
+					if (el.getY() > 0 || el.getBlock().getLightLevel() > 9) {
+						event.setCancelled(true);
+						event.getEntity().setMaxHealth(40.0);
+						event.getEntity().setHealth(40.0);
+						
+					}
+
+					
+				}  
+				
+			}
 			if ((sr != SpawnReason.BREEDING)
 					&& (et == EntityType.CHICKEN || et == EntityType.COW
 							|| et == EntityType.MUSHROOM_COW
