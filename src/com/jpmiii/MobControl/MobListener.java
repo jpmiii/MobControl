@@ -58,7 +58,7 @@ public class MobListener implements Listener {
 		Location el = event.getLocation();
 		SpawnReason sr = event.getSpawnReason();
 		EntityType et = event.getEntity().getType();
-		if (sr != SpawnReason.CUSTOM && sr != SpawnReason.SPAWNER_EGG) {
+		if (sr != SpawnReason.CUSTOM) {
 		if (el.getWorld().getName()
 				.equalsIgnoreCase(plugin.worldname)) {
 
@@ -82,11 +82,14 @@ public class MobListener implements Listener {
 						|| et == EntityType.SKELETON
 						|| et == EntityType.ZOMBIE) {
 					if (el.getY() > 0 || el.getBlock().getLightLevel() > 9) {
-						event.setCancelled(true);
+						
 						event.getEntity().setMaxHealth(40.0);
 						event.getEntity().setHealth(40.0);
-						PotionEffect pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100000,5);
-						event.getEntity().addPotionEffect(pe);
+						PotionEffect pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100000,50);
+						if (event.getEntity().addPotionEffect(pe)){
+							plugin.getLogger().info("effect added");
+						}
+						
 						
 					}
 
