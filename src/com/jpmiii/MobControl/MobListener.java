@@ -12,6 +12,8 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import com.jpmiii.MobControl.MobControl;
 
@@ -83,6 +85,8 @@ public class MobListener implements Listener {
 						event.setCancelled(true);
 						event.getEntity().setMaxHealth(40.0);
 						event.getEntity().setHealth(40.0);
+						PotionEffect pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100000,5);
+						event.getEntity().addPotionEffect(pe);
 						
 					}
 
