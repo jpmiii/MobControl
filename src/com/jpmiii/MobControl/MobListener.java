@@ -81,7 +81,7 @@ public class MobListener implements Listener {
 						|| et == EntityType.SPIDER 
 						|| et == EntityType.SKELETON
 						|| et == EntityType.ZOMBIE) {
-					if (el.getY() > 0 || el.getBlock().getLightLevel() > 9) {
+					
 						
 						event.getEntity().setMaxHealth(40.0);
 						event.getEntity().setHealth(40.0);
@@ -89,7 +89,7 @@ public class MobListener implements Listener {
 						event.getEntity().addPotionEffect(pe);
 						
 						
-					}
+					
 
 					
 				}  
