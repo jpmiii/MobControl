@@ -75,20 +75,18 @@ public class MobListener implements Listener {
 
 				// }
 			}  */
-			if(sr == SpawnReason.SPAWNER_EGG && el.getZ()  < -3300) {
+			if(el.getZ()  < -3300) {
 				
-				if (et == EntityType.CREEPER || et == EntityType.ENDERMAN
-						//|| et == EntityType.SPIDER 
+				if (et == EntityType.CREEPER || et == EntityType.CAVE_SPIDER
+						|| et == EntityType.SPIDER 
 						|| et == EntityType.SKELETON
 						|| et == EntityType.ZOMBIE) {
 					if (el.getY() > 0 || el.getBlock().getLightLevel() > 9) {
 						
 						event.getEntity().setMaxHealth(40.0);
 						event.getEntity().setHealth(40.0);
-						PotionEffect pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100000,50);
-						if (event.getEntity().addPotionEffect(pe)){
-							plugin.getLogger().info("effect added");
-						}
+						PotionEffect pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100000,5);
+						event.getEntity().addPotionEffect(pe);
 						
 						
 					}
@@ -97,7 +95,7 @@ public class MobListener implements Listener {
 				}  
 				
 			}
-			if ((sr != SpawnReason.BREEDING)
+			if (((sr != SpawnReason.BREEDING )  && (sr != SpawnReason.SPAWNER_EGG))
 					&& (et == EntityType.CHICKEN || et == EntityType.COW
 							|| et == EntityType.MUSHROOM_COW
 							|| et == EntityType.OCELOT || et == EntityType.WOLF
