@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -64,6 +65,12 @@ public class MobListener implements Listener {
 
 			// if(sr == SpawnReason.NATURAL || sr == SpawnReason.DEFAULT || sr
 			// == SpawnReason.CHUNK_GEN) {
+			if (et == EntityType.ZOMBIE) {
+				Zombie zom = (Zombie)event.getEntity();
+				if (zom.isBaby()){
+					zom.setBaby(false);
+				}
+			}
 /*
 			if (et == EntityType.CREEPER || et == EntityType.ENDERMAN
 					//|| et == EntityType.SPIDER 
