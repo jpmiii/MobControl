@@ -54,7 +54,7 @@ public class MobListener implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR)
+	@EventHandler(priority = EventPriority.HIGH)
 	public void spawn(CreatureSpawnEvent event) {
 		Location el = event.getLocation();
 		SpawnReason sr = event.getSpawnReason();
@@ -105,7 +105,7 @@ public class MobListener implements Listener {
 			if (((sr != SpawnReason.BREEDING )  && (sr != SpawnReason.SPAWNER_EGG))
 					&& (et == EntityType.CHICKEN || et == EntityType.COW
 							|| et == EntityType.MUSHROOM_COW
-							|| et == EntityType.OCELOT || et == EntityType.WOLF
+							//|| et == EntityType.OCELOT || et == EntityType.WOLF
 							|| et == EntityType.PIG || et == EntityType.SHEEP
 							|| et == EntityType.HORSE)) {
 				event.setCancelled(true);
