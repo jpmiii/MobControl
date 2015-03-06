@@ -1,6 +1,6 @@
 package com.jpmiii.MobControl;
 
-import java.util.List;
+
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -36,21 +36,48 @@ public class MobListener implements Listener {
 		}
 
 		if (et == EntityType.SKELETON || et == EntityType.ZOMBIE) {
-			List<ItemStack> ol = event.getDrops();
-			for (ItemStack itst : ol) {
-				Material itty = itst.getType();
-				if (itty == Material.IRON_BOOTS
-						|| itty == Material.IRON_CHESTPLATE
-						|| itty == Material.IRON_HELMET
-						|| itty == Material.IRON_LEGGINGS
-						|| itty == Material.GOLD_BOOTS
-						|| itty == Material.GOLD_CHESTPLATE
-						|| itty == Material.GOLD_HELMET
-						|| itty == Material.GOLD_LEGGINGS) {
-					event.getDrops().clear();
+			if (event.getDrops().contains(new ItemStack(Material.ROTTEN_FLESH))) {
+				event.getDrops().remove(new ItemStack(Material.ROTTEN_FLESH));
 
-				}
 			}
+			if (event.getDrops().contains(new ItemStack(Material.ROTTEN_FLESH))) {
+				event.getDrops().remove(new ItemStack(Material.ROTTEN_FLESH));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.IRON_HELMET))) {
+				event.getDrops().remove(new ItemStack(Material.IRON_HELMET));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.IRON_BOOTS))) {
+				event.getDrops().remove(new ItemStack(Material.IRON_BOOTS));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.IRON_CHESTPLATE))) {
+				event.getDrops().remove(new ItemStack(Material.IRON_CHESTPLATE));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.IRON_LEGGINGS))) {
+				event.getDrops().remove(new ItemStack(Material.IRON_LEGGINGS));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.GOLD_BOOTS))) {
+				event.getDrops().remove(new ItemStack(Material.GOLD_BOOTS));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.GOLD_LEGGINGS))) {
+				event.getDrops().remove(new ItemStack(Material.GOLD_LEGGINGS));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.GOLD_CHESTPLATE))) {
+				event.getDrops().remove(new ItemStack(Material.GOLD_CHESTPLATE));
+
+			}
+			if (event.getDrops().contains(new ItemStack(Material.GOLD_HELMET))) {
+				event.getDrops().remove(new ItemStack(Material.GOLD_HELMET));
+
+			}
+
+
 		}
 	}
 
